@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listes des livres
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+	<div class="content flex justify-center items-center flex-col">
+		<span class="flex justify-center text-4xl mb-5">Rechercher</span>
+		<div class="flex justify-center items-center flex-col w-full">
+			<div class="w-3/4 max-w-5xl bg-white">
+
+				<div class="col-span-full mt-10">
+					{{ form_start(form) }}
+					<div class="my-custom-class-for-errors">
+						{{ form_errors(form) }}
+					</div>
+
+					<div class="form-group">
+						{{form_label(form.recherche)}}
+						{{form_widget(form.recherche)}}
+						<div class="text-red-500 text-sm mt-1">
+							{{form_errors(form.recherche)}}
+						</div>
+					</div>
+
+					<div class="form-group flex mt-3">
+						{{form_widget(form.genres)}}
+						{{form_row(form.envoyer)}}
+						<div class="text-red-500 text-sm mt-1">
+							{{form_errors(form.genres)}}
+						</div>
+					</div>
+					{{ form_end(form) }}
+				</div>
+			</div>
+		</div>
+		<div class="grid lg:grid-cols-2 lg:grid-cols-2 gap-6 w-3/4 max-w-5xl">
+			{% for livre in livres %}
+				<div class="mx-auto bg-white rounded-xl shadow-md overflow-hidden mt-20 w-full">
+					<div class="flex flex-col md:flex-row">
+						<img class="h-80 w-64 object-center lg:w-60" src="{{ asset('img/' ~ livre.image) }}" alt="Image de la galerie">
+
+						<div class="p-6 max-h-72 overflow-hidden">
+							<a href="{{ path('displaylivre', {'id': livre.id}) }}">
+								<h2 class="font-bold text-xl mb-2">{{livre.titre}}</h2>
+							</a>
+							{% for ecrit in livre.ecrits %}
+								<a href="{{ path('displayauteur', {'id': ecrit.auteur.id}) }}">
+									<p class="text-gray-600 text-sm mb-2">{{ecrit.auteur.nom ~ " " ~ ecrit.auteur.prenom}}</p>
+								</a>
+							{% endfor %}
+							{% for type in livre.types %}
+								<a href="{{ path('listelivre.index', { 'recherche': { 'recherche': '', 'genres': [type.genre.id], 'envoyer': '' } }) }}">
+									<span class="text-blue-600 text-sm mb-2">{{type.genre.nom}}</span>
+								</a>
+							{% endfor %}
+							<p class="text-gray-500 text-xs mb-2">{{livre.annee}}</p>
+							<p class="text-gray-800 text-base overflow-hidden">{{ livre.description }}</p>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="navigation mt-10">
+			{{ knp_pagination_render(livres) }}
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+	<script src="{{asset('js/select2.js')}}"></script>
+{% endblock %}

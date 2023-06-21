@@ -1,0 +1,16 @@
+{% block stylesheets %}
+	<link href="{{ asset('css/style_ebook.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+	<select id="toc"></select>
+	<div id="viewer" class="spreads"></div>
+	<div id="prev" class="arrow">‹</div>
+	<div id="next" class="arrow">›</div>
+	<div id="ebook" data-ebook="{{ asset('ebook/' ~ ebook) }}"></div>
+{% endblock %}
+{% block javascripts %}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
+	<script src="{{ asset('js/epub.js') }}"></script>
+{% endblock %}

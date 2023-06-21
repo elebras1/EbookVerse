@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{compte.pseudo}}
+{% endblock %}
+
+{% block body %}
+	<div class="content flex justify-center items-center">
+		<div class="w-3/4 max-w-5xl mt-10">
+			<div class="bg-white shadow-md rounded-lg p-8 flex justify-center">
+				<div class="flex items-center justify-center">
+					<div>
+						<p class="text-gray-700 font-bold text-3xl mt-5">{{compte.pseudo}}</p>
+						<p class="text-gray-600 text-sm mt-5">{{compte.profil.nom ~ " " ~ compte.profil.prenom}}</p>
+						<p class="text-gray-600 text-sm mt-5">
+							{{"Date d'inscription : " ~ compte.profil.dateCreation |date('d-m-Y') }}
+						</p>
+
+						<div class="mt-5">
+							<a href="{{ asset('utilisateur/edition/editmotdepasse/' ~ compte.pseudo) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+								Modifier le mot de passe
+							</a>
+							<a href="{{ asset('utilisateur/edition/editprofil/' ~ compte.pseudo) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+								modifier le profil
+							</a>
+						</div>
+						<p class="text-gray-700 text-xl mt-10">Livres ajouté</p>
+						<div class="grid grid-cols-5 gap-4 mt-3">
+							{% for livre in compte.livre %}
+								<div class="mt-2">
+									<a href="{{ path('displaylivre', {'id': livre.id}) }}">
+										<img alt="gallery" class="block h-44 w-28 rounded-lg object-cover object-center" src="{{asset('img/' ~ livre.image)}}"/>
+									</a>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

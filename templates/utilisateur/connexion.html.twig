@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion
+{% endblock %}
+
+{% block body %}
+	<div class="content flex justify-center items-center flex-col">
+		<div class="w-96 max-w-4xl bg-white shadow-md rounded-lg p-8">
+			<span class="flex justify-center text-4xl mb-10">Connexion</span>
+			<form name="compte" method="post">
+				<div class="form-group">
+					<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white required" for="pseudo">Pseudo</label>
+					<input value="" type="text" id="pseudo" name="_pseudo" required="required" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" maxlength="60">
+					<div class="text-red-500 text-sm mt-1"></div>
+				</div>
+
+				<div class="form-group">
+					<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white required" for="motdepassse">Mot de passe</label>
+					<input type="password" id="motdepasse" name="_motdepasse" required="required" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" minlength="15" maxlength="60">
+					<div class="text-red-500 text-sm mt-1"></div>
+				</div>
+
+				<div>
+					<button type="submit" id="envoyer" name="envoyer" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded mt-5">Envoyer</button>
+				</div>
+
+			</form>
+
+			<p class="text-sm font-light text-gray-500 dark:text-gray-400 mt-6">
+				Vous n'avez pas encore de compte?
+				<a href="{{ path('inscription')}}" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Inscription</a>
+			</p>
+
+		</div>
+	</div>
+{% endblock %}

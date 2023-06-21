@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{livre.titre}}
+{% endblock %}
+
+{% block body %}
+	<div class="content flex justify-center items-center">
+		<div class="w-3/4 max-w-5xl mt-10">
+			<div class="bg-white shadow-md rounded-lg p-8">
+				<div class="flex flex-col items-center md:flex-row">
+					<img class="object-fill h-96 w-60 mr-10" src="{{ asset('img/' ~ livre.image) }}" alt="Image du livre">
+					<div>
+						<h2 class="font-bold text-2xl mb-2">{{livre.titre}}</h2>
+						<p class="text-gray-600 text-sm mb-2">{{livre.annee}}</p>
+						{% for ecrit in livre.ecrits %}
+							<a href="{{ path('displayauteur', {'id': ecrit.auteur.id}) }}">
+								<p class="text-gray-700 mb-2">{{ecrit.auteur.nom ~ " " ~ ecrit.auteur.prenom}}</p>
+							</a>
+						{% endfor %}
+						{% for type in livre.types %}
+							<a href="{{ path('listelivre.index', { 'recherche': { 'recherche': '', 'genres': [type.genre.id], 'envoyer': '' } }) }}">
+								<span class="text-blue-600 text-sm mb-2">{{type.genre.nom}}</span>
+							</a>
+						{% endfor %}
+						<p class="text-gray-600 text-sm mb-6">{{ livre.description }}</p>
+						<a href="{{ asset('ebook/' ~ livre.ebook) }}" download="{{livre.titre}}.epub" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+							Télécharger
+						</a>
+						<a href="{{ url('displayebook', {'ebook': livre.ebook}) }}" target="_blank" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+							Lire
+						</a>
+						{% if pseudo == livre.compte.pseudo %}
+							<a href="{{ path('editlivre', {'id': livre.id}) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+								modifier
+							</a>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

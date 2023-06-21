@@ -1,0 +1,98 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Ajouter un livre
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+	<div class="content flex justify-center items-center flex-col">
+		<div class="w-3/4 max-w-5xl bg-white shadow-md rounded-lg p-8">
+			<span class="flex justify-center text-4xl">Ajouter un livre</span>
+
+			<div class="col-span-full mt-10">
+				{{ form_start(form) }}
+				<div class="my-custom-class-for-errors">
+					{{ form_errors(form) }}
+				</div>
+
+				<div class="form-group">
+					{{form_label(form.titre)}}
+					{{form_widget(form.titre)}}
+					<div class="text-red-500 text-sm mt-1">
+						{{form_errors(form.titre)}}
+					</div>
+				</div>
+
+				<div class="form-group">
+					{{form_label(form.description)}}
+					{{form_widget(form.description)}}
+					<div class="text-red-500 text-sm mt-1">
+						{{form_errors(form.description)}}
+					</div>
+				</div>
+
+				<div class="form-group">
+					{{form_label(form.annee)}}
+					{{form_widget(form.annee)}}
+					<div class="text-red-500 text-sm mt-1">
+						{{form_errors(form.annee)}}
+					</div>
+				</div>
+
+				<div class="form-group">
+					{{form_label(form.image)}}
+					{{form_widget(form.image)}}
+					<div class="text-red-500 text-sm mt-1">
+						{{form_errors(form.image)}}
+					</div>
+				</div>
+
+				<div class="form-group">
+					{{form_label(form.ebook)}}
+					{{form_widget(form.ebook)}}
+					<div class="text-red-500 text-sm mt-1">
+						{{form_errors(form.ebook)}}
+					</div>
+				</div>
+
+				<div class="form-group">
+					{{form_label(form.auteur)}}
+					<div class="flex">
+						{{form_widget(form.auteur)}}
+						<a href="{{ path('newauteur') }}" target="_blank" class="bg-blue-700 hover:bg-blue-800 text-white font-bold ml-3 py-2 px-5 rounded-md" title="Si l'auteur n'existe pas veuillez le créer.">
+							<img src="https://www.nicepng.com/png/full/251-2519428_0-add-icon-white-png.png" width="13px" alt="0 - Add Icon White Png@nicepng.com">
+						</a>
+					</div>
+					<div class="text-red-500 text-sm mt-1">
+						{{form_errors(form.auteur)}}
+					</div>
+				</div>
+
+				<div class="form-group">
+					{{form_label(form.genre)}}
+					{{form_widget(form.genre)}}
+					<div class="text-red-500 text-sm mt-1">
+						{{form_errors(form.genre)}}
+					</div>
+				</div>
+
+				<div class="form-group">
+					{{form_row(form.envoyer)}}
+				</div>
+				{{ form_end(form) }}
+			</div>
+		</div>
+	</div>
+
+	{% block javascripts %}
+		{{ parent() }}
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+		<script src="{{asset('js/select2.js')}}"></script>
+	{% endblock %}
+{% endblock %}
