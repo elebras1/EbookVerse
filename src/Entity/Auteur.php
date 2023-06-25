@@ -6,6 +6,7 @@ use App\Repository\AuteurRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints;
 
 #[ORM\Entity(repositoryClass: AuteurRepository::class)]
 class Auteur
@@ -16,12 +17,17 @@ class Auteur
     private ?int $id = null;
 
     #[ORM\Column(length: 60)]
+    #[Constraints\NotBlank()]
+    #[Constraints\Length(min: 2, max: 60)]
     private ?string $nom = null;
 
     #[ORM\Column(length: 60)]
+    #[Constraints\NotBlank()]
+    #[Constraints\Length(min: 2, max: 60)]
     private ?string $prenom = null;
 
     #[ORM\Column(length: 1000, nullable: true)]
+    #[Constraints\Length(min: 10, max: 1000)]
     private ?string $description = null;
 
     #[ORM\Column(length: 1)]

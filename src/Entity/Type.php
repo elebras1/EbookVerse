@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\TypeRepository;
+use Symfony\Component\Validator\Constraints;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: TypeRepository::class)]
@@ -10,11 +11,13 @@ class Type
 {
 
     #[ORM\Id]
+    #[Constraints\NotBlank()]
     #[ORM\ManyToOne(inversedBy: 'types')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Livre $livre = null;
 
     #[ORM\Id]
+    #[Constraints\NotBlank()]
     #[ORM\ManyToOne(inversedBy: 'types')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Genre $genre = null;

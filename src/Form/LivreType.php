@@ -23,6 +23,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Validator\Constraints\Range;
 
 class LivreType extends AbstractType
 {
@@ -64,15 +65,15 @@ class LivreType extends AbstractType
             ->add('annee', IntegerType::class, [
                 'attr' => [
                     'class' => 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-16 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 appearance-none',
-                    'minlength' => '-4500',
-                    'maxlength' => date('Y')
+                    'min' => '-4500',
+                    'max' => date('Y')
                 ],
                 'label' => 'Date de parution',
                 'label_attr' => [
                     'class' => 'block mb-2 text-sm font-medium text-gray-900 dark:text-white'
                 ],
                 'constraints' => [
-                    new Length(['min' => -4500, 'max' => date('Y')]),
+                    new Range(['min' => -4500, 'max' => date('Y')]),
                     new NotBlank()
                 ]
             ])

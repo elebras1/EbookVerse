@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\GenreRepository;
+use Symfony\Component\Validator\Constraints;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -16,6 +17,8 @@ class Genre
     private ?int $id = null;
 
     #[ORM\Column(length: 40)]
+    #[Constraints\NotBlank()]
+    #[Constraints\Length(min: 2, max: 40)]
     private ?string $nom = null;
 
     #[ORM\Column(length: 1)]

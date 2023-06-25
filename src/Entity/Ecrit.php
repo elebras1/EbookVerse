@@ -4,16 +4,19 @@ namespace App\Entity;
 
 use App\Repository\EcritRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints;
 
 #[ORM\Entity(repositoryClass: EcritRepository::class)]
 class Ecrit
 {
     #[ORM\Id]
+    #[Constraints\NotBlank()]
     #[ORM\ManyToOne(inversedBy: 'ecrits')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Livre $livre = null;
 
     #[ORM\Id]
+    #[Constraints\NotBlank()]
     #[ORM\ManyToOne(inversedBy: 'ecrits')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Auteur $auteur = null;

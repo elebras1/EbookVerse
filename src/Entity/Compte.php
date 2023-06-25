@@ -5,6 +5,7 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Repository\CompteRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
@@ -14,9 +15,13 @@ class Compte implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\Column(length: 60)]
+    #[Constraints\NotBlank()]
+    #[Constraints\Length(min: 2, max: 60)]
     private ?string $pseudo = null;
 
     #[ORM\Column(length: 60)]
+    #[Constraints\NotBlank()]
+    #[Constraints\Length(min: 15, max: 60)]
     private ?string $mot_de_passe = null;
 
     #[ORM\OneToOne(mappedBy: 'compte')]

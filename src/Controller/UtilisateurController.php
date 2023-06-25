@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Compte;
 use App\Form\ProfilType;
-use App\form\UserPasswordType;
+use App\Form\UserPasswordType;
 use App\Repository\CompteRepository;
 use App\Repository\ConfigurationRepository;
 use Doctrine\ORM\EntityManagerInterface;

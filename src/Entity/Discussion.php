@@ -6,6 +6,7 @@ use App\Repository\DiscussionRepository;
 use DateTimeImmutable;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints;
 
 #[ORM\Entity(repositoryClass: DiscussionRepository::class)]
 class Discussion
@@ -16,6 +17,8 @@ class Discussion
     private ?int $id = null;
 
     #[ORM\Column(length: 300)]
+    #[Constraints\NotBlank()]
+    #[Constraints\Length(min: 10, max: 300)]
     private ?string $message = null;
 
     #[ORM\Column(type: Types::DATETIMETZ_IMMUTABLE)]

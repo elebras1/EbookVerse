@@ -5,14 +5,17 @@ namespace App\Entity;
 use App\Repository\ProfilRepository;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints;
 
 #[ORM\Entity(repositoryClass: ProfilRepository::class)]
 class Profil
 {
     #[ORM\Column(length: 60, nullable: true)]
+    #[Constraints\Length(min: 2, max: 60)]
     private ?string $prenom = null;
 
     #[ORM\Column(length: 60, nullable: true)]
+    #[Constraints\Length(min: 2, max: 60)]
     private ?string $nom = null;
 
     #[ORM\Column(length: 1)]
@@ -25,6 +28,7 @@ class Profil
     private ?\DateTimeInterface $date_creation = null;
 
     #[ORM\Id]
+    #[Constraints\NotBlank()]
     #[ORM\OneToOne(targetEntity: Compte::class)]
     #[ORM\JoinColumn(name: 'cpt_pseudo', referencedColumnName: 'pseudo')]
     private ?Compte $compte = null;

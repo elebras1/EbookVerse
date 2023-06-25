@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\LivreRepository;
 use DateTimeImmutable;
+use Symfony\Component\Validator\Constraints;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -18,21 +19,31 @@ class Livre
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
+    #[Constraints\NotBlank()]
+    #[Constraints\Length(min: 2, max: 100)]
     private ?string $titre = null;
 
     #[ORM\Column(length: 1000)]
+    #[Constraints\NotBlank()]
+    #[Constraints\Length(min: 10, max: 1000)]
     private ?string $description = null;
 
     #[ORM\Column]
+    #[Constraints\NotBlank()]
+    #[Constraints\Range(min: -4500, max: 2023)]
     private ?int $annee = null;
 
     #[ORM\Column(type: Types::DATETIMETZ_IMMUTABLE)]
     private ?DateTimeImmutable $date = null;
 
     #[ORM\Column(length: 150)]
+    #[Constraints\NotBlank()]
+    #[Constraints\Length(max: 150)]
     private ?string $image = null;
 
     #[ORM\Column(length: 150)]
+    #[Constraints\NotBlank()]
+    #[Constraints\Length(max: 150)]
     private ?string $ebook = null;
 
     #[ORM\Column(length: 1)]
