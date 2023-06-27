@@ -43,8 +43,8 @@ class AppFixtures extends Fixture
 
         for($i=0; $i < 15; $i++) {
             $compte = new Compte();
-            $compte->setMotDePasse('password');
-            $compte->setPseudo('Peudo'. $i);
+            $compte->setMotDePasse('password1234567');
+            $compte->setPseudo('Pseudo'. $i);
 
             $profil = new Profil();
             $profil->setCompte($compte);

@@ -2,15 +2,10 @@
 
 namespace App\Form;
 
-use App\Entity\Ecrit;
 use App\Entity\Genre;
 use App\Entity\Livre;
 use App\Entity\Auteur;
-use App\Entity\Compte;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\File;
