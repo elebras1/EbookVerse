@@ -1,3 +1,7 @@
+.content {
+    padding-top: 100px;
+}
+
 @import 'select2/dist/css/select2.min.css';
 
 @layer base {
@@ -7,8 +11,4 @@
         -webkit-appearance: none;
         margin: 0;
     }
-}
-
-.content {
-    padding-top: 100px;
 }

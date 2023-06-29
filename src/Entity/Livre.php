@@ -37,12 +37,10 @@ class Livre
     private ?DateTimeImmutable $date = null;
 
     #[ORM\Column(length: 150)]
-    #[Constraints\NotBlank()]
     #[Constraints\Length(max: 150)]
     private ?string $image = null;
 
     #[ORM\Column(length: 150)]
-    #[Constraints\NotBlank()]
     #[Constraints\Length(max: 150)]
     private ?string $ebook = null;
 
