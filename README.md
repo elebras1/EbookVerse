@@ -1,7 +1,15 @@
 # EbookVerse
 A symfony project for an online book sharing and reading site
 
-![Imgur](https://imgur.com/IEMYyON)
+![ebookverse_demo](ebookverse_demo.gif)
+
+# Summary
+
+- [Install](#install)
+- [Use](#use)
+- [Core Features](#core_features)
+- [Management rules](#management_rules)
+- [Licence](#licence)
 
 ## Install
 
@@ -9,6 +17,7 @@ A symfony project for an online book sharing and reading site
 2. Make sure you have an web development platform installed on your system like Laragon or Wamp.
 3. Create an sql database and change the DATABASE_URL in the .env to yours.
 
+<a id="install" class="anchor"></a>
 
 ## Use
 
@@ -16,6 +25,7 @@ A symfony project for an online book sharing and reading site
 2. Load a "fake" dataset into the database bin/console doctrine:fixtures:load
 3. Open your browser and and if it's local, use http://127.0.0.1:8000.
 
+<a id="use" class="anchor"></a>
 
 ## Core Features
 
@@ -29,6 +39,7 @@ A symfony project for an online book sharing and reading site
 - A registration and a login and a summary of modifiable user information the password is modified separately
 - An administrator space that allows you to manage all the data of the site
 
+<a id="core_features" class="anchor"></a>
 
 ## Management rules
 
@@ -38,9 +49,12 @@ A symfony project for an online book sharing and reading site
 - A user with the ROLE_ADMIN role can access the administrator area
 - Information can be viewed via computer, mobile phone or tablet.
 
+<a id="management_rules" class="anchor"></a>
 
 ## Licence
 
 This project is licensed ![Licence MIT](https://img.shields.io/badge/Licence-MIT-blue.svg).
 
 For more details, please see the file [LICENSE](public/licence.md).
+
+<a id="licence" class="anchor"></a>
