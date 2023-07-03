@@ -19,7 +19,7 @@ A symfony project for an online book sharing and reading site
 
 ## Core Features
 
-- propose a selection of 6 random books and display the books in descending order.
+- Propose a selection of 6 random books and display the books in descending order.
 - A chat room.
 - Search books by name, author or genre.
 - Display all the information of a book (title, authors, descriptions, genres, date of publication) and links to download the book.
@@ -32,7 +32,8 @@ A symfony project for an online book sharing and reading site
 
 ## Management rules
 
-- The application is accessible to all Internet users.
-- There are two types of users with an account: association managers ('ROLE_USER') and facilitators ('ROLE_ADMIN').
+- A user can view the list of books, search for a book, view the pages of a book, the downloaded, read it online, view the discussion.
+- There are two types of users with an account: user ('ROLE_USER') and administrator ('ROLE_ADMIN').
+- A connected user can write a message in the discussion, add a book and modify it, add an author and modify all the existing authors, access the summary of his      account and modify the profile and the password.
+- A user with the ROLE_ADMIN role can access the administrator area
 - Information can be viewed via computer, mobile phone or tablet.
-- Users with an account can access role-specific information and activity data.
