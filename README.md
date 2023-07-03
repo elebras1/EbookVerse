@@ -37,3 +37,10 @@ A symfony project for an online book sharing and reading site
 - A connected user can write a message in the discussion, add a book and modify it, add an author and modify all the existing authors, access the summary of his      account and modify the profile and the password.
 - A user with the ROLE_ADMIN role can access the administrator area
 - Information can be viewed via computer, mobile phone or tablet.
+
+
+## Licence
+
+This project is licensed ![Licence MIT](https://img.shields.io/badge/Licence-MIT-blue.svg).
+
+For more details, please see the file [LICENSE](public/licence.md).
