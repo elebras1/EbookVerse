@@ -1,5 +1,5 @@
 [![Langage](https://img.shields.io/badge/Langage-PHP-blue.svg)](https://www.php.net/)
-[![Framework](https://img.shields.io/badge/Framework-Symfony-dark.svg)](https://symfony.com/)
+[![Framework](https://img.shields.io/badge/Framework-Symfony-black.svg)](https://symfony.com/)
 [![Langage](https://img.shields.io/badge/Langage-HTML-orange.svg)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![Libraries](https://img.shields.io/badge/Library-Tailwind_CSS-blueviolet.svg)](https://tailwindcss.com/)
 # EbookVerse
