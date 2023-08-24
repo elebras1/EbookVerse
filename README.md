@@ -2,6 +2,7 @@
 [![Framework](https://img.shields.io/badge/Framework-Symfony-black.svg)](https://symfony.com/)
 [![Langage](https://img.shields.io/badge/Langage-HTML-orange.svg)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![Libraries](https://img.shields.io/badge/Library-Tailwind_CSS-blueviolet.svg)](https://tailwindcss.com/)
+[![Libraries](https://img.shields.io/badge/Library-epub.js-white.svg)](https://github.com/futurepress/epub.js)
 # EbookVerse
 A symfony project for an online book sharing and reading site
 
