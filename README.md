@@ -4,7 +4,7 @@
 [![Libraries](https://img.shields.io/badge/Library-Tailwind_CSS-blueviolet.svg)](https://tailwindcss.com/)
 [![Libraries](https://img.shields.io/badge/Library-epub.js-white.svg)](https://github.com/futurepress/epub.js)
 # EbookVerse
-A symfony project for an online book sharing and reading site
+Symfony book sharing platform: Explore, read online or download books in EPUB format. Add new books and authors, filter by author, category or year. Built-in chat with logged in users.
 
 ![ebookverse_demo](ebookverse_demo.gif)
 
